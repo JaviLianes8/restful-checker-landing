@@ -1,22 +1,15 @@
-/* -------------------------- */
-/*        GLOBAL THEME        */
-/* -------------------------- */
-
 :root {
   --gradient-1: linear-gradient(135deg, #007bff, #00c6ff);
   --gradient-2: linear-gradient(135deg, #7928ca, #ff0080);
 
   --bg: #0f1117;
   --card-bg: rgba(255, 255, 255, 0.05);
-  --card-border: rgba(255, 255, 255, 0.12);
   
   --text: #e8e8e8;
   --text-soft: #c7c7c7;
   
   --radius: 14px;
   --shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-
-  --transition: 0.25s ease;
 }
 
 * {
@@ -29,55 +22,56 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  padding: 2.5rem;
-  max-width: 1000px;
-  margin: auto;
-  line-height: 1.75;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 2rem;
+  min-height: 100vh;
+
+  text-align: center;
+  line-height: 1.7;
 }
 
-/* -------------------------- */
-/*         HEADERS            */
-/* -------------------------- */
+body > * {
+  max-width: 900px;
+  width: 100%;
+}
 
 h1 {
   font-size: 2.8rem;
-  margin-bottom: 1rem;
   background: var(--gradient-1);
   -webkit-background-clip: text;
   color: transparent;
   font-weight: 800;
-}
-
-h2 {
-  font-size: 1.7rem;
-  margin-top: 2.2rem;
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-  color: #66c8ff;
-}
-
-/* -------------------------- */
-/*           TEXT             */
-/* -------------------------- */
-
-p, li {
-  color: var(--text-soft);
-  font-size: 1.15rem;
   margin-bottom: 1rem;
 }
 
-ul {
-  padding-left: 1.5rem;
+h2 {
+  color: #66c8ff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
-/* -------------------------- */
-/*        LINKS / BUTTONS     */
-/* -------------------------- */
+p, li {
+  color: var(--text-soft);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+ul { 
+  text-align: left; 
+  margin: auto;
+  max-width: 700px;
+}
 
 a {
   color: #64baff;
   text-decoration: none;
-  transition: var(--transition);
+  font-weight: 600;
+  transition: .2s;
 }
 
 a:hover {
@@ -86,72 +80,47 @@ a:hover {
 
 .actions {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
   margin: 2rem 0;
-  flex-wrap: wrap;
 }
 
 .actions a {
   padding: 0.85rem 1.6rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: var(--radius);
   background: var(--gradient-1);
   color: white;
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transition: var(--transition);
+  transition: 0.25s;
 }
 
 .actions a:hover {
-  transform: translateY(-3px);
   background: var(--gradient-2);
-}
-
-/* -------------------------- */
-/*          CARDS             */
-/* -------------------------- */
-
-ul li,
-iframe,
-.actions a {
-  border-radius: var(--radius);
+  transform: translateY(-4px);
 }
 
 iframe {
-  border: 2px solid var(--card-border);
-  box-shadow: var(--shadow);
-  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+  height: 600px;
+  border: none;
   border-radius: var(--radius);
+  margin-top: 1.5rem;
+  box-shadow: var(--shadow);
 }
-
-/* -------------------------- */
-/*            HR              */
-/* -------------------------- */
 
 hr {
   border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
+  width: 100%;
   margin: 2.5rem 0;
 }
 
-/* -------------------------- */
-/*        RESPONSIVE          */
-/* -------------------------- */
-
 @media (max-width: 700px) {
-  body {
-    padding: 1.5rem;
-  }
+  h1 { font-size: 2.2rem; }
+  iframe { height: 450px; }
+  p, li { font-size: 1rem; }
   
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  iframe {
-    height: 450px;
-  }
-
-  .actions {
-    flex-direction: column;
-  }
+  ul { padding-left: 1rem; }
 }
