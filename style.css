@@ -1,13 +1,9 @@
 :root {
   --gradient-1: linear-gradient(135deg, #007bff, #00c6ff);
   --gradient-2: linear-gradient(135deg, #7928ca, #ff0080);
-
   --bg: #0f1117;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  
   --text: #e8e8e8;
   --text-soft: #c7c7c7;
-  
   --radius: 14px;
   --shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
@@ -22,7 +18,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,14 +26,15 @@ body {
 
   padding: 2rem;
   min-height: 100vh;
-
   text-align: center;
-  line-height: 1.7;
 }
 
-body > * {
-  max-width: 900px;
+.container {
+  max-width: 800px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
@@ -55,23 +52,29 @@ h2 {
   margin-bottom: 1rem;
 }
 
-p, li {
+p {
   color: var(--text-soft);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
+  text-align: center;
+  max-width: 700px;
 }
 
-ul { 
-  text-align: left; 
-  margin: auto;
-  max-width: 700px;
+ul {
+  list-style-position: inside;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+li {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
 }
 
 a {
   color: #64baff;
   text-decoration: none;
   font-weight: 600;
-  transition: .2s;
 }
 
 a:hover {
@@ -83,21 +86,21 @@ a:hover {
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
 
 .actions a {
-  padding: 0.85rem 1.6rem;
+  padding: 0.9rem 1.8rem;
   background: var(--gradient-1);
   color: white;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transition: 0.25s;
+  transition: 0.2s;
 }
 
 .actions a:hover {
   background: var(--gradient-2);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 iframe {
@@ -111,16 +114,15 @@ iframe {
 }
 
 hr {
+  width: 100%;
   border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  width: 100%;
-  margin: 2.5rem 0;
+  margin: 2rem 0;
 }
 
 @media (max-width: 700px) {
   h1 { font-size: 2.2rem; }
-  iframe { height: 450px; }
+  h2 { font-size: 1.5rem; }
+  iframe { height: 420px; }
   p, li { font-size: 1rem; }
-  
-  ul { padding-left: 1rem; }
 }
