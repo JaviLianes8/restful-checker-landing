@@ -1,17 +1,24 @@
+/* Lighter, cleaner, modern theme */
 :root {
-  --gradient-1: linear-gradient(135deg, #007bff, #00c6ff);
-  --gradient-2: linear-gradient(135deg, #7928ca, #ff0080);
-  --bg: #0f1117;
-  --text: #e8e8e8;
-  --text-soft: #c7c7c7;
+  --gradient-1: linear-gradient(135deg, #4a90e2, #67d6ff);
+  --gradient-2: linear-gradient(135deg, #a668e6, #ff73b9);
+  --bg: #f4f7fb;
+  --text: #222;
+  --text-soft: #444;
   --radius: 14px;
-  --shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  animation: fadeIn 0.6s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 body {
@@ -30,7 +37,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 850px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -47,7 +54,7 @@ h1 {
 }
 
 h2 {
-  color: #66c8ff;
+  color: #1570b8;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -72,13 +79,14 @@ li {
 }
 
 a {
-  color: #64baff;
+  color: #0077cc;
   text-decoration: none;
   font-weight: 600;
+  transition: 0.2s;
 }
 
 a:hover {
-  color: #90d8ff;
+  color: #005fa3;
 }
 
 .actions {
@@ -95,7 +103,7 @@ a:hover {
   color: white;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transition: 0.2s;
+  transition: 0.25s;
 }
 
 .actions a:hover {
@@ -116,7 +124,7 @@ iframe {
 hr {
   width: 100%;
   border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
   margin: 2rem 0;
 }
 
