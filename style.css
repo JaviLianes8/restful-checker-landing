@@ -1,127 +1,157 @@
+/* -------------------------- */
+/*        GLOBAL THEME        */
+/* -------------------------- */
+
 :root {
-  --primary: #007acc;
-  --secondary: #e0f0ff;
-  --background: #ffffff;
-  --text: #1e1e1e;
-  --link: #007acc;
-  --link-hover: #005c99;
-  --accent: #f0f0f0;
-  --border-radius: 12px;
-  --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --gradient-1: linear-gradient(135deg, #007bff, #00c6ff);
+  --gradient-2: linear-gradient(135deg, #7928ca, #ff0080);
+
+  --bg: #0f1117;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.12);
+  
+  --text: #e8e8e8;
+  --text-soft: #c7c7c7;
+  
+  --radius: 14px;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+  --transition: 0.25s ease;
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--background);
+  background: var(--bg);
   color: var(--text);
-  padding: 2rem;
-  max-width: 840px;
+  font-family: 'Inter', sans-serif;
+  padding: 2.5rem;
+  max-width: 1000px;
   margin: auto;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-h1, h2 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
+/* -------------------------- */
+/*         HEADERS            */
+/* -------------------------- */
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 800;
 }
 
 h2 {
-  font-size: 1.5rem;
-  margin-top: 2rem;
+  font-size: 1.7rem;
+  margin-top: 2.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  color: #66c8ff;
 }
 
+/* -------------------------- */
+/*           TEXT             */
+/* -------------------------- */
+
 p, li {
+  color: var(--text-soft);
+  font-size: 1.15rem;
   margin-bottom: 1rem;
-  font-size: 1.1rem;
 }
 
 ul {
   padding-left: 1.5rem;
 }
 
-ul li {
-  padding-left: 0.25rem;
-}
+/* -------------------------- */
+/*        LINKS / BUTTONS     */
+/* -------------------------- */
 
 a {
-  color: var(--link);
+  color: #64baff;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease-in-out;
+  transition: var(--transition);
 }
 
 a:hover {
-  color: var(--link-hover);
+  color: #90d8ff;
 }
 
 .actions {
   display: flex;
   gap: 1rem;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
 .actions a {
-  padding: 0.75rem 1.25rem;
-  background-color: var(--primary);
+  padding: 0.85rem 1.6rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  background: var(--gradient-1);
   color: white;
-  border-radius: var(--border-radius);
   box-shadow: var(--shadow);
-  transition: background-color 0.3s ease;
-  text-align: center;
+  transition: var(--transition);
 }
 
 .actions a:hover {
-  background-color: var(--link-hover);
+  transform: translateY(-3px);
+  background: var(--gradient-2);
+}
+
+/* -------------------------- */
+/*          CARDS             */
+/* -------------------------- */
+
+ul li,
+iframe,
+.actions a {
+  border-radius: var(--radius);
 }
 
 iframe {
-  border: none;
-  border-radius: var(--border-radius);
-  width: 100%;
-  height: 600px;
+  border: 2px solid var(--card-border);
   box-shadow: var(--shadow);
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  border-radius: var(--radius);
 }
+
+/* -------------------------- */
+/*            HR              */
+/* -------------------------- */
 
 hr {
-  margin: 2rem 0;
-  border: none;
-  border-top: 1px solid #ddd;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 2.5rem 0;
 }
 
-@media (max-width: 600px) {
+/* -------------------------- */
+/*        RESPONSIVE          */
+/* -------------------------- */
+
+@media (max-width: 700px) {
   body {
-    padding: 1rem;
+    padding: 1.5rem;
   }
-
+  
   h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  p, li {
-    font-size: 1rem;
+  iframe {
+    height: 450px;
   }
 
   .actions {
     flex-direction: column;
-  }
-
-  iframe {
-    height: 400px;
   }
 }
