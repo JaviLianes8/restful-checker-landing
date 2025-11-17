@@ -2,7 +2,7 @@
 :root {
   --gradient-1: linear-gradient(135deg, #4a90e2, #67d6ff);
   --gradient-2: linear-gradient(135deg, #a668e6, #ff73b9);
-  --bg: #f4f7fb;
+  --bg: linear-gradient(135deg, #6eb6ff, #a7d8ff);
   --text: #222;
   --text-soft: #444;
   --radius: 14px;
