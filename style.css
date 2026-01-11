@@ -128,6 +128,31 @@ hr {
   margin: 2rem 0;
 }
 
+/* Bonus section styling */
+#bonus-title {
+  background: var(--gradient-2);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+#bonus-list li {
+  background: linear-gradient(90deg, rgba(166, 104, 230, 0.08), transparent);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  border-left: 3px solid #a668e6;
+}
+
+/* Mistakes list styling */
+#mistakes-list li {
+  background: linear-gradient(90deg, rgba(74, 144, 226, 0.08), transparent);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  border-left: 3px solid #4a90e2;
+}
+
 @media (max-width: 700px) {
   h1 { font-size: 2.2rem; }
   h2 { font-size: 1.5rem; }

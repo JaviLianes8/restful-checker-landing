@@ -13,6 +13,15 @@
     "⚠️ Multiple consecutive IDs in routes (/{id}/{id}).",
     "🔴 Not using HTTPS in all environments."
   ],
+  "bonus_title": "(Dis)honorable mentions",
+  "bonus_intro": "Bonus mistakes we also find frequently:",
+  "bonus": [
+    "💀 Using GET for operations that modify data.",
+    "💀 Returning 200 OK when there's an actual error.",
+    "💀 Endpoints without versioning (/api/users vs /api/v1/users).",
+    "💀 Mixing languages in route names.",
+    "💀 Exposing internal database IDs without obfuscation."
+  ],
   "improve_title": "Want to improve your API?",
   "improve_intro": "Use RESTful Checker in two ways:",
   "improve_cicd": "CI/CD Integration: Add the analysis as an automatic step.",

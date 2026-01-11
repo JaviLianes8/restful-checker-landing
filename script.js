@@ -3,40 +3,56 @@ const userLang = navigator.language.startsWith('es') ? 'es' : 'en';
 fetch(`lang/${userLang}.json`)
   .then(res => res.json())
   .then(data => {
-    document.querySelector('h1').textContent = data.title;
-    document.querySelector('p').textContent = data.intro;
+    // Title and intro
+    document.getElementById('title').textContent = data.title;
+    document.getElementById('description').textContent = data.intro;
 
-    const ul = document.querySelector('ul');
-    ul.innerHTML = ''; // limpiar por si acaso
+    // Top 10 mistakes
+    const mistakesList = document.getElementById('mistakes-list');
+    mistakesList.innerHTML = '';
     data.mistakes.forEach(m => {
       const li = document.createElement('li');
       li.textContent = m;
-      ul.appendChild(li);
+      mistakesList.appendChild(li);
     });
 
-    document.querySelector('h2').textContent = data.improve_title;
-    document.querySelectorAll('p')[1].textContent = data.improve_intro;
+    // Bonus section
+    document.getElementById('bonus-title').textContent = data.bonus_title;
+    document.getElementById('bonus-intro').textContent = data.bonus_intro;
+    const bonusList = document.getElementById('bonus-list');
+    bonusList.innerHTML = '';
+    data.bonus.forEach(b => {
+      const li = document.createElement('li');
+      li.textContent = b;
+      bonusList.appendChild(li);
+    });
 
-    const lis = document.querySelectorAll('ul')[1].children;
-    lis[0].innerHTML = `<strong>${data.improve_cicd.split(':')[0]}:</strong> ${data.improve_cicd.split(':')[1]}`;
-    lis[1].innerHTML = `<strong>${data.improve_manual.split(':')[0]}:</strong> ${data.improve_manual.split(':')[1]}`;
+    // Improve section
+    document.getElementById('improve-title').textContent = data.improve_title;
+    document.getElementById('improve-intro').textContent = data.improve_intro;
+    document.getElementById('improve-ci').innerHTML = `<strong>${data.improve_cicd.split(':')[0]}:</strong>${data.improve_cicd.split(':')[1]}`;
+    document.getElementById('improve-manual').innerHTML = `<strong>${data.improve_manual.split(':')[0]}:</strong>${data.improve_manual.split(':')[1]}`;
 
-    const actions = document.querySelector('.actions');
-    actions.children[0].textContent = data.install_cli;
-    actions.children[1].textContent = data.view_code;
+    // Action buttons
+    document.getElementById('install-cli').textContent = data.install_cli;
+    document.getElementById('github-link').textContent = data.view_code;
 
-    document.querySelectorAll('h2')[1].textContent = data.try_now;
-    document.querySelectorAll('p')[2].textContent = data.upload_swagger;
+    // Try now section
+    document.getElementById('try-now').textContent = data.try_now;
+    document.getElementById('upload-instruction').textContent = data.upload_swagger;
 
-    const tools = document.querySelectorAll('h2')[2];
-    tools.textContent = data.tools_title;
+    // Tools section
+    document.getElementById('tools-title').textContent = data.tools_title;
+    document.getElementById('cli-label').textContent = data.tool_cli;
+    document.getElementById('cli-link').textContent = data.tool_cli_link;
+    document.getElementById('github-cli-label').textContent = data.tool_github;
+    document.getElementById('github-cli-link').textContent = data.tool_github_link;
+    document.getElementById('web-label').textContent = data.tool_web;
+    document.getElementById('web-link').textContent = data.tool_web_link;
+    document.getElementById('api-label').textContent = data.tool_api;
+    document.getElementById('api-link').textContent = data.tool_api_link;
 
-    const toolList = document.querySelectorAll('ul')[2].children;
-    toolList[0].innerHTML = `<strong>${data.tool_cli}</strong> <a href="https://pypi.org/project/restful-checker/" target="_blank">${data.tool_cli_link}</a>`;
-    toolList[1].innerHTML = `<strong>${data.tool_github}</strong> <a href="https://github.com/JaviLianes8/restful-checker" target="_blank">${data.tool_github_link}</a>`;
-    toolList[2].innerHTML = `<strong>${data.tool_web}</strong> <a href="https://restful-checker-website.vercel.app/" target="_blank">${data.tool_web_link}</a>`;
-    toolList[3].innerHTML = `<strong>${data.tool_api}</strong> <a href="https://github.com/JaviLianes8/restful-checker-api" target="_blank">${data.tool_api_link}</a>`;
-
-    const support = document.querySelectorAll('p')[3];
-    support.innerHTML = `${data.support} <a href="https://buymeacoffee.com/jlianesglrs" target="_blank">${data.support_link}</a>`;
+    // Support
+    document.getElementById('support-text').textContent = data.support;
+    document.getElementById('support-link').textContent = data.support_link;
   });
